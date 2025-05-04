@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1a73e8;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.upload-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+#drop-area {
+    padding: 2rem;
+    text-align: center;
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+#drop-area.highlight {
+    border-color: #1a73e8;
+    background-color: rgba(26, 115, 232, 0.05);
+}
+
+.my-form {
+    margin-bottom: 1rem;
+}
+
+#fileInput {
+    display: none;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #1a73e8;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: #155db3;
+}
+
+#preview-container {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+#preview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#clearImage {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#clearImage:hover {
+    background-color: #d32f2f;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.slider-container {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+}
+
+#complexity {
+    width: 100%;
+    height: 10px;
+    background: #d3d3d3;
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+#complexity::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #1a73e8;
+    cursor: pointer;
+}
+
+#complexity::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #1a73e8;
+    cursor: pointer;
+}
+
+#generateBtn {
+    padding: 0.75rem 2rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#generateBtn:hover {
+    background-color: #155db3;
+}
+
+#generateBtn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.results-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.tab-container {
+    display: flex;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+    padding: 1rem 1.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #666;
+}
+
+.tab-button:hover {
+    background-color: #e0e0e0;
+}
+
+.tab-button.active {
+    background-color: #fff;
+    color: #1a73e8;
+    border-bottom: 2px solid #1a73e8;
+}
+
+.tab-content {
+    display: none;
+    padding: 2rem;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#resultCanvas {
+    width: 100%;
+    max-height: 500px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.equation-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.equation-group h3 {
+    margin-bottom: 1rem;
+    color: #1a73e8;
+}
+
+.equation-list {
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    padding: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.equation-item {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.equation-item:hover {
+    background-color: #f0f8ff;
+}
+
+.equation-item.copied {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.desmos-link-container {
+    text-align: center;
+}
+
+.link-box {
+    display: flex;
+    margin: 1.5rem 0;
+}
+
+#desmosLink {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 0.9rem;
+}
+
+#copyLink {
+    padding: 0.75rem 1.5rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+#openDesmos {
+    margin-top: 1rem;
+    padding: 0.75rem 2rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#openDesmos:hover {
+    background-color: #155db3;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #1a73e8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .equation-groups {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-button {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .tab-content {
+        padding: 1rem;
+    }
+}

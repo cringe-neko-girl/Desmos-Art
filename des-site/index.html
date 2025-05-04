@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desmos Art Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Desmos Art Generator</h1>
+        <p>Transform your images into mathematical equations for the Desmos graphing calculator.</p>
+
+        <div class="upload-container">
+            <div id="drop-area">
+                <form class="my-form">
+                    <p>Upload an image using the button below or by dragging and dropping</p>
+                    <input type="file" id="fileInput" accept="image/*">
+                    <label class="file-label" for="fileInput">Choose an image</label>
+                </form>
+                <div id="preview-container" class="hidden">
+                    <img id="preview" src="#" alt="Preview">
+                    <button id="clearImage">Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="slider-container">
+                <label for="complexity">Complexity: <span id="complexityValue">3</span></label>
+                <input type="range" id="complexity" min="1" max="5" value="3" step="1">
+            </div>
+            <button id="generateBtn" disabled>Generate Desmos Art</button>
+        </div>
+
+        <div class="results-container hidden" id="resultsContainer">
+            <div class="tab-container">
+                <button class="tab-button active" data-tab="preview-tab">Preview</button>
+                <button class="tab-button" data-tab="equations-tab">Equations</button>
+                <button class="tab-button" data-tab="desmos-tab">Desmos Link</button>
+            </div>
+
+            <div class="tab-content active" id="preview-tab">
+                <canvas id="resultCanvas"></canvas>
+            </div>
+
+            <div class="tab-content" id="equations-tab">
+                <div class="equation-groups">
+                    <div class="equation-group">
+                        <h3>Line Equations</h3>
+                        <div id="lineEquations" class="equation-list"></div>
+                    </div>
+                    <div class="equation-group">
+                        <h3>Parametric Equations</h3>
+                        <div id="parametricEquations" class="equation-list"></div>
+                    </div>
+                    <div class="equation-group">
+                        <h3>Circle Equations</h3>
+                        <div id="circleEquations" class="equation-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="desmos-tab">
+                <div class="desmos-link-container">
+                    <h3>Desmos Calculator Link</h3>
+                    <div class="link-box">
+                        <input type="text" id="desmosLink" readonly>
+                        <button id="copyLink">Copy</button>
+                    </div>
+                    <p>Click the link above to open your art in Desmos Calculator</p>
+                    <button id="openDesmos" class="primary-button">Open in Desmos</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Processing image...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Desmos Art Generator &copy; 2025</p>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
+    <script type="module" src="./processor.js"></script>
+</body>
+</html>
